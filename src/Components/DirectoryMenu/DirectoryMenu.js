@@ -11,7 +11,7 @@ sections : [
           title: 'hats',
           imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
           id: 1,
-          linkUrl: 'shop/hats'
+          linkUrl: 'hats'
         },
         {
           title: 'jackets',
@@ -45,8 +45,8 @@ sections : [
     render()
     {
 return(<div className='directory-menu'>{
-    this.state.sections.map(({...allSectionsProps})=>{
-      return(<MenuItem {...allSectionsProps}/>)
+    this.state.sections.map(({id,...allSectionsProps})=>{
+      return(<MenuItem key={id} {...allSectionsProps}/>)
     })
 }
 </div>)
