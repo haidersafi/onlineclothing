@@ -14,6 +14,7 @@ this.setState({[e.target.name]:e.target.value});
     }
     onHandleSubmit=async (e)=>{
         const {email,password,displayName}=this.state;
+        if (password!==this.state.confirmPassword){alert('password dont match');}
         e.preventDefault();
         try{
         const {user}= await auth.createUserWithEmailAndPassword(email,password);
