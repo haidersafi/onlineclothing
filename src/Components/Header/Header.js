@@ -7,6 +7,9 @@ import {connect} from 'react-redux';
 import CartIcon from '../CartIcon/CartIcon';
 import CartDropdown from '../CartDropdown/Cartdropdown'
 import {ToggleDropdown} from '../../redux/CartDropdown/DropdownAction'
+import {selectCurrentUser} from '../../redux/User/UserSelectors';
+import {toggleDD} from '../../redux/CartDropdown/ToggleDDSelector';
+import {createStructuredSelector} from 'reselect';
  const Header=({currentUser,toggle,toggleDropdown})=>{
     return(<div className='header'>
     <Link to='/' className='logo-container'><Logo/></Link>
@@ -22,7 +25,7 @@ import {ToggleDropdown} from '../../redux/CartDropdown/DropdownAction'
     </div>)
 }
 
-const mapStatetoProps=(state)=>({
-    currentUser:state.user.currentUser,
-    toggle:state.toggle.toggledropdown})
+const mapStatetoProps=createStructuredSelector({
+    currentUser:selectCurrentUser,
+    toggle:toggleDD})
 export default connect(mapStatetoProps)(Header);
