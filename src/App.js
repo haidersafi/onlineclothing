@@ -9,7 +9,8 @@ import {auth,createUserProfileDocument} from './Firebase/Firebase';
 import {connect} from 'react-redux';
 import {setCurrentUser} from './redux/User/UserAction'
 import {selectCurrentUser} from './redux/User/UserSelectors';
-import {createStructuredSelector} from 'reselect'
+import {createStructuredSelector} from 'reselect';
+import checkOut from './Pages/CheckOut/CheckOut';
 
 class App extends React.Component {
 
@@ -39,6 +40,7 @@ class App extends React.Component {
     <Route exact path='/' component={HomePage}/>
     <Route exact path='/shop' component={ShopPage}/>
     <Route exact path='/signin' render={()=>this.props.currentUser?(<Redirect to='/'/>):(<SigninSignup/>)}/>
+    <Route exact path='/checkout' component={checkOut}/>
     </div>
   );}
 }
