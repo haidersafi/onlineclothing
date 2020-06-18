@@ -19,6 +19,6 @@ const CollectionItem=({item,AddItem})=>{
 }
 const mapDispatchToProps=(dispatch)=>({
     AddItem:item=>dispatch(AddItem(item))
-})
+});
 
 export default connect(null,mapDispatchToProps)(CollectionItem);
